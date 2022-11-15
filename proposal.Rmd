@@ -1,0 +1,45 @@
+---
+title: "ProjectProposal"
+author: "Group 5"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+Link to Github Repository: https://github.com/anchayes/Stat605_Project
+
+Project Proposal  
+Using the 31G flight data set from Kaggle, we will analyze ticket prices based on 
+departing airport. The data is from Expedia between 2022-04-16 and 2022-10-05. 
+The airport arrival/destinations are ATL, DFW, DEN, ORD, LAX, CLT, MIA, JFK, 
+EWR, SFO, DTW, BOS, PHL, LGA, IAD, OAK. 
+
+Description of Variables:  
+legId: An identifier for the flight.  
+searchDate: The date (YYYY-MM-DD) on which this entry was taken from Expedia.  
+flightDate: The date (YYYY-MM-DD) of the flight.  
+startingAirport: Three-character IATA airport code for the initial location.  
+destinationAirport: Three-character IATA airport code for the arrival location.  
+fareBasisCode: The fare basis code.  
+travelDuration: The travel duration in hours and minutes.  
+elapsedDays: The number of elapsed days (usually 0).  
+isBasicEconomy: Boolean for whether the ticket is for basic economy.  
+isRefundable: Boolean for whether the ticket is refundable.  
+isNonStop: Boolean for whether the flight is non-stop.  
+baseFare: The price of the ticket (in USD).  
+totalFare: The price of the ticket (in USD) including taxes and other fees.  
+seatsRemaining: Integer for the number of seats remaining.  
+totalTravelDistance: The total travel distance in miles.   
+
+
+Statistical Methods 
+
+Computational Steps
+
+Code to Read Data:  
+Data From:  https://www.kaggle.com/datasets/dilwong/flightprices
+
+
