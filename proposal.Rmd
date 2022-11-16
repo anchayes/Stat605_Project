@@ -36,11 +36,17 @@ seatsRemaining: Integer for the number of seats remaining.
 totalTravelDistance: The total travel distance in miles.   
 
 
-## Statistical Methods 
+## Statistical Methods
 Linear regression to predict the price of a flight
 
 ## Computational Steps
-Split data into several smaller files by departing airport. Use best subset or some other technique to chose which variables are significant to price. Fit the model and run diagnostics. Each of these steps will be distributed to the departing airport files.
+1. Split data in several smaller files by departing airport
+
+2. Use best subset or some other variable selection method to chose which variables are significant to price
+
+3. Fit a model and run diagnostics 
+
+Steps 2 and 3 will be distributed to the departing airport files.
 
 ## Code to Read Data:  
 [Link to data](https://www.kaggle.com/datasets/dilwong/flightprices)
