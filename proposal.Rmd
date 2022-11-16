@@ -1,5 +1,5 @@
 ---
-title: "ProjectProposal"
+title: "Stat 605 Project"
 author: "Group 5"
 output: html_document
 ---
