@@ -9,15 +9,16 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 
-Link to Github Repository: https://github.com/anchayes/Stat605_Project
+[Link to Github Repository](https://github.com/anchayes/Stat605_Project)
 
-Project Proposal  
+## Project Proposal  
+
 Using the 31G flight data set from Kaggle, we will analyze ticket prices based on 
 departing airport. The data is from Expedia between 2022-04-16 and 2022-10-05. 
 The airport arrival/destinations are ATL, DFW, DEN, ORD, LAX, CLT, MIA, JFK, 
 EWR, SFO, DTW, BOS, PHL, LGA, IAD, OAK. 
 
-Description of Variables:  
+### Description of Variables:  
 legId: An identifier for the flight.  
 searchDate: The date (YYYY-MM-DD) on which this entry was taken from Expedia.  
 flightDate: The date (YYYY-MM-DD) of the flight.  
@@ -35,11 +36,14 @@ seatsRemaining: Integer for the number of seats remaining.
 totalTravelDistance: The total travel distance in miles.   
 
 
-Statistical Methods 
+## Statistical Methods 
+Linear regression to predict the price of a flight
 
-Computational Steps
+## Computational Steps
+Split data into several smaller files by departing airport. Use best subset or some other technique to chose which variables are significant to price. Fit the model and run diagnostics. Each of these steps will be distributed to the departing airport files.
 
-Code to Read Data:  
-Data From:  https://www.kaggle.com/datasets/dilwong/flightprices
+## Code to Read Data:  
+[Link to data](https://www.kaggle.com/datasets/dilwong/flightprices)
+
 
 
