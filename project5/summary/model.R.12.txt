@@ -1,0 +1,22 @@
+
+Call:
+lm(formula = totalFare ~ seatsRemaining + totalTravelDistance, 
+    data = flights)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-180.10  -38.59    1.09   38.59  668.59 
+
+Coefficients:
+                      Estimate Std. Error t value Pr(>|t|)    
+(Intercept)          1.216e+02  1.561e+00  77.923  < 2e-16 ***
+seatsRemaining      -9.813e-01  1.632e-01  -6.013 1.83e-09 ***
+totalTravelDistance  6.221e-02  2.209e-04 281.622  < 2e-16 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 60.8 on 153362 degrees of freedom
+  (2299 observations deleted due to missingness)
+Multiple R-squared:  0.3506,	Adjusted R-squared:  0.3506 
+F-statistic: 4.14e+04 on 2 and 153362 DF,  p-value: < 2.2e-16
+
