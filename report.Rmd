@@ -1,0 +1,87 @@
+---
+title: "STAT 605 Final Report"
+author: 'Group 5: Marwa Eltgani, Anna Hayes, Abby Terzis'
+date: "2022-12-12"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## STAT 605 Project
+
+[Link to GitHub](https://github.com/anchayes/Stat605_Project)
+
+## Introduction  
+
+The data provides ticket prices for one-way flights found on Expedia. We sought to find if
+seatsRemaining and totalTravelDistance affect the price of a plane ticket (totalFare) and used Multiple Linear Regression to do this. The original data is a 31GB file of flight tickets found on Expedia between 04/16/2022 and 10/05/2022.
+
+### Description of Variables
+
+totalFare: The price of the ticket (in USD) including taxes and other fees.  
+
+seatsRemaining: Integer for the number of seats remaining.  
+
+totalTravelDistance: The total travel distance in miles.
+
+## Statistical Analysis  
+
+We split the large data set into 16 smaller files based on departing airport and randomly sampled
+10% of the data. We used seatsRemaining and totalTravelDistance as predictors in all our 16
+models for basic economy tickets. The summary table below, Figure 1, shows the results we achieved from
+fitting the regression model for ATL airport.
+
+
+![Figure 1. Model of ATL](Picture1.png){width=50%}
+
+The linear regression model for Atlanta is as follows:
+$totalFare = 71.35 + 3.68seatsRemaining + 0.06totalTravelDistance$
+
+For each seat remaining, holding distance constant, the ticket price will increase by about $\$3.68$. For each 100 miles traveled, holding seats remaining constant, the ticket price will increase by about $\$6$. Since the p-value for both coefficients is below $\alpha = 0.05$, we can conclude that both seatsRemaining and totalTravelDistance affect ticket price. 
+
+
+![QQ plot full data.](Picture2.png) ![Residual Plot full data.](Picture3.png)
+
+
+The above plots are a couple diagnostic plots before taking the 10% random sample. As we can see, there are too many observations to get a good look at the underlying pattern. The below plots are after taking the 10% sample and unfortunately there are still so many observations but we did not want to lose the nature of the original data so we decided not to reduce the random sample further.  
+
+
+![QQ plot full 10% data.](Picture4.png) ![Residual Plot full 10%data.](Picture5.png)
+
+
+
+A weakness to our analysis is that we aren't taking into consideration a temporal effect of ticket prices so holidays like Memorial Day, July 4th and Labor Day are treated the same as other days.
+
+### Comparing the 16 Models
+
+The highest R-squared value of the 16 models is 43.82% and the lowest is 8.73%. These low values of R-squared are most likely due to the temporal effect limitation discussed above. Nonetheless, both variables, seatsRemaining and totalTravelDistance, are significant in each model. This allows us to conclude that our predictors affect ticket price for all 16 models. 
+
+The coefficients for each of the 16 models vary. About half of the models have a negative relationship between seatsRemaining and totalFare, whereas the other half is positive. This could be due to an airline wanting to maximize revenue. For example, if a plane is not at full capcaity, they could charge more in order to make up for the seats that are vacant.  Each model also has a high intercept.
+
+
+## Condor Details  
+
+We created a shell script to split the large 31GB dataset, filtered by basic economy tickets, and removed unnecessary columns to reduce memory, leaving us with 16 files of size 20 to 30 MB. Afterwards, we tested our R script by running a regression model on only one csv (ATL) to ensure our scripts were working before running them on all 16 files. We initially used 1 GB of memory to run our first job but got an error message stating that more memory was required to run the job.We increased our memory to 5 GB but that also didn’t work. We realized that lm() requires a lotof memory to run in CHTC so we ended up increasing our memory to 8 GB to get just one job to run. Once our first job was successful, we ran three more jobs and then finally, ran all 16 jobs which took about 6 minutes to run in total and required 20 GB of memory along with 2 GB of disk space.  
+
+Since linear regression requires a lot of memory to be able to run in CHTC, it may not be the best
+option in terms of memory when there are a hundred jobs to run. It was also hard to view
+visualizations on CHTC. The only way to view plots was by transferring the files to our local
+machine which can be time consuming when there are multiple jobs to run.
+
+![Condor Flow Chart](Condor.png)
+
+## Conclusion  
+
+We wanted to see what factors affected the price of a plane ticket. Based on our analysis,
+seatsRemaining and totalTravelDistance significantly impact the price of a plane ticket regardless
+of the 16 departing airports we analyzed. For future analysis we could add the temporal effect of
+the ticket since we did not look at that aspect for this analysis.
+
+### Contributions  
+
+Abby, Anna, and Marwa all contributed to: writing the proposal, writing code, making the
+presentation, and writing the report.
+ 
+ 
